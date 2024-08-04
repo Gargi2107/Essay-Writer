@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+    />
+    <title>Essay Writer</title>
+
+  </head>
+  <body>
+    <div class="bg-gray-100">
+      <nav class="bg-black p-4">
+        <div class="container mx-auto flex justify-between items-center">
+          <a href="/" class="text-white text-xl font-bold">Essay Writer</a>
+          <div class="md:hidden">
+            <button id="navbar-toggle" class="text-white focus:outline-none">
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16m-7 6h7"
+                ></path>
+              </svg>
+            </button>
+          </div>
+          <div class="hidden md:flex">
+            <a href="/login" class="text-white hover:text-gray-400 ml-4">Login</a>
+            <a href="/" class="text-white hover:text-gray-400 ml-4">Home</a>
+            <a href="/about" class="text-white hover:text-gray-400 ml-4">About</a>
+            <a href="/services" class="text-white hover:text-gray-400 ml-4">Services</a>
+            <a href="/contact" class="text-white hover:text-gray-400 ml-4">Contact</a>
+          </div>
+        </div>
+        <div id="navbar-menu" class="hidden flex flex-col items-end">
+          <a href="/login" class="text-white hover:text-gray-400 ml-4">Login</a>
+          <a href="/" class="text-white hover:text-gray-400 ml-4">Home</a>
+          <a href="/about" class="text-white hover:text-gray-400 ml-4">About</a>
+          <a href="/services" class="text-white hover:text-gray-400 ml-4">Services</a>
+          <a href="/contact" class="text-white hover:text-gray-400 ml-4">Contact</a>
+        </div>
+      </nav>
+    
+          <div class="container mx-auto my-5 p-4 rounded shadow-md">
+            <h1 class="text-3xl font-bold text-center mb-5">
+              Contact Us
+            </h1>
+            <p class="text-xl text-gray-700 text-center mb-8">
+              Have any questions or need assistance? Fill out the form below, and we'll get back to you as soon as possible.
+            </p>
+
+              <form id="contactForm" class="space-y-4">
+                  <div>
+                      <label for="name" class="block font-medium">Name:<span style=" font-size: 17px; color: #fa0000; padding: 10px 20px;">⃰</span></label>
+                      <input type="text" id="name" name="name" class="border w-full border-gray-300 rounded p-2" required>
+                  </div>
+
+                  <div>
+                      <label for="email" class="block font-medium">Email:<span style=" font-size: 17px; color: #fa0000; padding: 10px 20px;">⃰</span></label>
+                      <input type="email" id="email" name="email" class="border w-full border-gray-300 rounded p-2" required>
+                  </div>
+
+                  <div>
+                      <label for="message" class="block font-medium mb-2">Message:<span style=" font-size: 17px; color: #fa0000; padding: 10px 20px;">⃰</span></label>
+                      <textarea id="message" name="message" class="border w-full border-gray-300 rounded p-2" rows="6" required></textarea>
+                  </div>
+
+                  <div>
+                      <button type="submit" id="sendMsg" class="bg-blue-600 text-white px-4 py-2 rounded">Send Message</button>
+                  </div>
+              </form>
+          </div>
+
+          <footer class="bg-gray-800 text-white text-center p-4">
+              <p>&copy; 2024 Essay Writer. All rights reserved.</p>
+          </footer>
+      </div>
+
+      <script>
+
+        const toggleButton = document.getElementById("navbar-toggle");
+        const menu = document.getElementById("navbar-menu");
+
+        toggleButton.addEventListener("click", () => {
+          menu.classList.toggle("hidden");
+        });
+
+
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            fetch('/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ name, email, message })
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert('Your message has been sent!');
+                document.getElementById('contactForm').reset();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('There was an error sending your message.');
+            });
+        });
+      </script>
+    
+  </body>
+</html>

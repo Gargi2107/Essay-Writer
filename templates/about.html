@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+    />
+    <title>Essay Writer</title>
+
+  </head>
+  <body>
+    <div class="bg-gray-100">
+      <nav class="bg-black p-4">
+        <div class="container mx-auto flex justify-between items-center">
+          <a href="/" class="text-white text-xl font-bold">Essay Writer</a>
+          <div class="md:hidden">
+            <button id="navbar-toggle" class="text-white focus:outline-none">
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16m-7 6h7"
+                ></path>
+              </svg>
+            </button>
+          </div>
+          <div class="hidden md:flex">
+            <a href="/login" class="text-white hover:text-gray-400 ml-4">Login</a>
+            <a href="/" class="text-white hover:text-gray-400 ml-4">Home</a>
+            <a href="/about" class="text-white hover:text-gray-400 ml-4">About</a>
+            <a href="/services" class="text-white hover:text-gray-400 ml-4">Services</a>
+            <a href="/contact" class="text-white hover:text-gray-400 ml-4">Contact</a>
+          </div>
+        </div>
+        
+        <div id="navbar-menu" class="hidden flex flex-col items-end">
+          <a href="/login" class="text-white hover:text-gray-400 ml-4">Login</a>
+          <a href="/" class="text-white hover:text-gray-400 ml-4">Home</a>
+          <a href="/about" class="text-white hover:text-gray-400 ml-4">About</a>
+          <a href="/services" class="text-white hover:text-gray-400 ml-4">Services</a>
+          <a href="/contact" class="text-white hover:text-gray-400 ml-4">Contact</a>
+        </div>
+      </nav>
+     
+        <section class="container mx-auto py-7">
+          <h1 class="text-3xl font-bold text-center mb-5">About Us</h1>
+          <p class="text-xl text-gray-700 text-center mb-8">Empowering students through exceptional essay writing services.</p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 ">
+            <div class=" flex flex-col space-y-6 ml-8">
+              <p class="text-l text-gray-700">Essay Writer is a platform dedicated to helping students succeed in their academic endeavors by providing high-quality essay writing services.</p>
+              <p class="text-l text-gray-700">Our team of experienced writers and editors is passionate about education and committed to delivering exceptional results. We understand the challenges students face, and we strive to provide the support and resources they need to excel in their writing.</p>
+              <ul class="list-disc pl-4 text-gray-700">
+                <li>Qualified and experienced writers</li>
+                <li>Customizable essay writing services</li>
+                <li>On-time delivery and strict deadlines</li>
+                <li>Guaranteed satisfaction and revisions</li>
+                <li>Safe and secure platform</li>
+              </ul>
+            </div>
+            <img src="https://img.freepik.com/free-photo/people-with-laptops-office_23-2147656717.jpg?w=826&t=st=1721731826~exp=1721732426~hmac=bb083d813614b0fb2111c7d4f129af6d2fbf955cec481b7738f482eb333f0544" alt="Team Photo" class="ml-10 rounded-lg shadow-md h-80 w-120"" >
+          </div>
+        </section>
+        
+
+      <footer class="bg-gray-800 text-white text-center p-4">
+          <p>&copy; 2024 Essay Writer. All rights reserved.</p>
+      </footer>
+
+      <script>
+
+        const toggleButton = document.getElementById("navbar-toggle");
+        const menu = document.getElementById("navbar-menu");
+
+        toggleButton.addEventListener("click", () => {
+          menu.classList.toggle("hidden");
+        });
+        
+      </script>
+    </div>
+  </body>
+</html>
